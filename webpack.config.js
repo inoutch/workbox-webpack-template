@@ -39,6 +39,12 @@ module.exports = (env = {}, argv) => {
         devServer: {
             contentBase: 'build',
             port: 3000,
+            proxy: {
+                '/api/*': {
+                    target: 'http://localhost:8080',
+                    secure: false
+                }
+            }
         },
     };
 };
